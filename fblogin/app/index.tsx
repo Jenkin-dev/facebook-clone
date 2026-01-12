@@ -3,17 +3,18 @@ import {
   Text,
   Image,
   TextInput,
-  Pressable,
+  // Pressable,
   TouchableOpacity,
-  Alert,
+  // Alert,
   ScrollView,
+  Switch,
 } from "react-native";
-import { red } from "react-native-reanimated/lib/typescript/Colors";
+// import { red } from "react-native-reanimated/lib/typescript/Colors";
 
 import { Ionicons } from "@expo/vector-icons"; //for the dropdown icon
 
 import { useState } from "react";
-import { Switch } from "react-native";
+// import { Switch } from "react-native";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 
