@@ -86,7 +86,7 @@ export default function Index() {
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
       >
-        <View
+       <TouchableOpacity> <View
           style={{
             flexDirection: "row",
             alignItems: "center",
@@ -98,7 +98,7 @@ export default function Index() {
             English (US)
           </Text>
           <Ionicons name="chevron-down" size={16} color={theme.text} />
-        </View>
+        </View> </TouchableOpacity>
         <Image
           style={{
             width: 70,
@@ -116,7 +116,7 @@ export default function Index() {
           style={{
             height: 60,
             borderColor: theme.inputBorder,
-
+            color: theme.text,
             borderWidth: 1,
             paddingHorizontal: 18,
             borderRadius: 20,
@@ -129,6 +129,7 @@ export default function Index() {
           style={{
             height: 60,
             borderColor: theme.inputBorder,
+            color: theme.text,
             borderWidth: 1,
             paddingHorizontal: 18,
             borderRadius: 20,
@@ -153,18 +154,19 @@ export default function Index() {
             Log in
           </Text>
         </TouchableOpacity>
-
-        <Text
-          style={{
-            alignSelf: "center",
-            color: theme.subtitle,
-            fontSize: 16,
-            fontWeight: 900,
-            // marginBottom: 800
-          }}
-        >
-          Forgot Password?
-        </Text>
+        <TouchableOpacity>
+          <Text
+            style={{
+              alignSelf: "center",
+              color: theme.subtitle,
+              fontSize: 16,
+              fontWeight: 900,
+              // marginBottom: 800
+            }}
+          >
+            Forgot Password?
+          </Text>
+        </TouchableOpacity>
       </ScrollView>
       <View>
         <View style={{ alignItems: "center" }}>
