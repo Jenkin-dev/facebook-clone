@@ -10,11 +10,77 @@ import {
 } from "react-native";
 import { red } from "react-native-reanimated/lib/typescript/Colors";
 
+import { Ionicons } from "@expo/vector-icons"; //for the dropdown icon
+
+import { useState } from "react";
+import { Switch } from "react-native";
+
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
+  const [isEnabled, setIsEnabled] = useState(false);
+
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  const theme = {
+    background: isDarkMode ? "#30363D" : "#FFFFFF",
+    text: isDarkMode ? "#FFFFFF" : "#000000",
+    subtitle: isDarkMode ? "whitesmoke" : "#343c43",
+    inputBorder: isDarkMode ? "grey" : "#ccc",
+  };
+
   return (
-    <SafeAreaView style={{ backgroundColor: "#30363D", flex: 1, padding: 15 }}>
+    <SafeAreaView
+      style={{ backgroundColor: theme.background, flex: 1, padding: 15 }}
+    >
+      <View //div for the notification and UI toggles
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-around",
+          alignItems: "center",
+          marginVertical: 0,
+        }}
+      >
+        <View //this is for notification
+          style={{
+            flexDirection: "row",
+            justifyContent: "flex-end",
+            alignItems: "center",
+            gap: 7,
+            marginVertical: 0,
+          }}
+        >
+          <Text style={{ color: theme.text, fontSize: 16 }}>
+            Enable notifications
+          </Text>
+
+          <Switch
+            value={isEnabled}
+            onValueChange={setIsEnabled}
+            trackColor={{ false: "#767577", true: "#767577" }}
+            thumbColor={isEnabled ? "lightblue" : "#fbfafb"}
+          />
+        </View>
+
+        <View //to toggle dark and light mode
+          style={{
+            flexDirection: "row",
+            justifyContent: "flex-end",
+            alignItems: "center",
+            gap: 7,
+            marginVertical: 0,
+          }}
+        >
+          <Text style={{ color: theme.text, fontSize: 16 }}>Dark Mode</Text>
+
+          <Switch
+            value={isDarkMode}
+            onValueChange={setIsDarkMode}
+            trackColor={{ false: "#767577", true: "#767577" }}
+            thumbColor={isDarkMode ? "lightblue" : "#fbfafb"}
+          />
+        </View>
+      </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
@@ -27,13 +93,10 @@ export default function Index() {
             marginVertical: 60,
           }}
         >
-          <Text style={{ alignSelf: "center", color: "grey" }}>
+          <Text style={{ alignSelf: "center", color: theme.text }}>
             English (US)
           </Text>
-          <Image
-            style={{ width: 15, height: 10 }}
-            source={require("../image/dropdown.png")}
-          />
+          <Ionicons name="chevron-down" size={16} color={theme.text} />
         </View>
         <Image
           style={{
@@ -51,7 +114,8 @@ export default function Index() {
           placeholder="Mobile number or email"
           style={{
             height: 60,
-            borderColor: "grey",
+            borderColor: theme.inputBorder,
+
             borderWidth: 1,
             paddingHorizontal: 18,
             borderRadius: 20,
@@ -63,7 +127,7 @@ export default function Index() {
           placeholder="Password"
           style={{
             height: 60,
-            borderColor: "grey",
+            borderColor: theme.inputBorder,
             borderWidth: 1,
             paddingHorizontal: 18,
             borderRadius: 20,
@@ -92,9 +156,10 @@ export default function Index() {
         <Text
           style={{
             alignSelf: "center",
-            color: "white",
+            color: theme.subtitle,
             fontSize: 16,
             fontWeight: 900,
+            // marginBottom: 800
           }}
         >
           Forgot Password?
@@ -106,7 +171,7 @@ export default function Index() {
             style={{
               height: 40,
               width: "100%",
-              backgroundColor: "#30363D",
+              backgroundColor: theme.background,
               paddingHorizontal: 18,
               borderRadius: 20,
               borderWidth: 1,
@@ -122,7 +187,7 @@ export default function Index() {
           </TouchableOpacity>
 
           <Image
-            style={{ width: 35+35/2, height: 18 }}
+            style={{ width: 35 + 35 / 2, height: 18 }}
             source={require("../image/metalogo-removebg-preview.png")}
           />
         </View>
