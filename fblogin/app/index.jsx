@@ -107,7 +107,7 @@ export default function Index() {
             alignSelf: "center",
             marginBottom: 50,
           }}
-          source={require("../image/fb.png")}
+          source={require("../assets/images/fb.png")}
         />
 
         <TextInput
@@ -191,7 +191,7 @@ export default function Index() {
 
           <Image
             style={{ width: 35 + 35 / 2, height: 18 }}
-            source={require("../image/metalogo-removebg-preview.png")}
+            source={require("../assets/images/metalogo-removebg-preview.png")}
           />
         </View>
       </View>
